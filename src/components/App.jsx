@@ -1,6 +1,6 @@
 
 import user from './Data/user';
-import Profile from './Profile/ProfileUser'
+import { Profile } from './Profile/ProfileUser'
 
 
 export const App = () => {
