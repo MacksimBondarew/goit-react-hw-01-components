@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { ProfileMarkup, Description, PhotoUser, NameUser, TagUser,
 LocationUser, StatsUser, StatsUserItem, StatsUserLabel, StatsUserLabelQuantity
-} from './ProfileUser.styled';
+} from './Profile.styled';
 
 export const Profile = ({ username, tag, location, avatar, stats }) => {
     return (
