@@ -1,17 +1,18 @@
-import { FriendListItem,  FriendItem, FriendItemStatus, FriendItemAvatar, FriendName} from './FriendList.styled'
+import { FriendItem} from './FriendList.styled'
 import PropTypes from 'prop-types';
+import { FriendListItem } from './../FriendListItem/FriendListItem';
 
 export const FriendList = ({ friends }) => {
     return (
-    <FriendListItem>
+    <FriendItem>
         {friends.map(({ avatar, name, isOnline, id}) => (
-            <FriendItem key={id}>
-                <FriendItemStatus status={isOnline}></FriendItemStatus>
-                <FriendItemAvatar src={avatar} alt="User avatar" width="48" />
-                <FriendName>{name}</FriendName>
-            </FriendItem>
+        <FriendListItem key={id} avatar={avatar}
+        friendName={name}
+        isOnline={isOnline}
+        id={id}
+        />
         ))}
-    </FriendListItem>)
+    </FriendItem>)
 }
 
 FriendList.prototype = {
@@ -21,7 +22,7 @@ FriendList.prototype = {
             name: PropTypes.string.isRequired,
             isOnline: PropTypes.bool.isRequired,
             id: PropTypes.number.isRequired,
-        })
-    )
+        }).isRequired
+    ).isRequired
 }
 

@@ -3,7 +3,7 @@ import { ProfileMarkup, Description, PhotoUser, NameUser, TagUser,
 LocationUser, StatsUser, StatsUserItem, StatsUserLabel, StatsUserLabelQuantity
 } from './Profile.styled';
 
-export const Profile = ({ username, tag, location, avatar, stats }) => {
+export const Profile = ({ username, tag, location, avatar, stats: {followers, views, likes,}}) => {
     return (
     <ProfileMarkup key={username}>
         <Description>
@@ -18,15 +18,15 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
         <StatsUser>
             <StatsUserItem>
                 <StatsUserLabel>Followers</StatsUserLabel>
-                <StatsUserLabelQuantity>{stats.followers}</StatsUserLabelQuantity>
+                <StatsUserLabelQuantity>{followers}</StatsUserLabelQuantity>
             </StatsUserItem>
             <StatsUserItem>
                 <StatsUserLabel>Views</StatsUserLabel>
-                <StatsUserLabelQuantity>{stats.views}</StatsUserLabelQuantity>
+                <StatsUserLabelQuantity>{views}</StatsUserLabelQuantity>
             </StatsUserItem>
             <StatsUserItem>
                 <StatsUserLabel>Likes</StatsUserLabel>
-                <StatsUserLabelQuantity>{stats.likes}</StatsUserLabelQuantity>
+                <StatsUserLabelQuantity>{likes}</StatsUserLabelQuantity>
             </StatsUserItem>
         </StatsUser>
     </ProfileMarkup>
@@ -38,5 +38,5 @@ Profile.propTypes = {
     location: PropTypes.string.isRequired,
     tag: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired,
-    stats: PropTypes.objectOf(PropTypes.number).isRequired,
+    stats: PropTypes.object.isRequired,
 }

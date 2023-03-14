@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components'
 
 export const Transaction = styled.table`
     width: 300px;
