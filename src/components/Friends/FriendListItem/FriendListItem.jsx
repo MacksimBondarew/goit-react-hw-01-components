@@ -1,4 +1,5 @@
 import {
+    FriendItemList,
     FriendItem,
     FriendItemStatus,
     FriendItemAvatar,
@@ -6,14 +7,15 @@ import {
 } from './FriendListItem.styled';
 import PropTypes from 'prop-types';
 
-
 export const FriendListItem = ({ avatar, friendName, isOnline, id }) => {
     return (
-        <FriendItem key={id}>
-            <FriendItemStatus status={isOnline} />
-            <FriendItemAvatar src={avatar} alt="User avatar" width="48" />
-            <FriendName>{friendName}</FriendName>
-        </FriendItem>
+        <FriendItemList>
+            <FriendItem key={id}>
+                <FriendItemStatus status={isOnline} />
+                <FriendItemAvatar src={avatar} alt="User avatar" width="48" />
+                <FriendName>{friendName}</FriendName>
+            </FriendItem>
+        </FriendItemList>
     );
 };
 
@@ -22,5 +24,4 @@ FriendListItem.prototype = {
     friendName: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     isOnline: PropTypes.bool.isRequired,
-}
-
+};
